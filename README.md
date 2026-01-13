@@ -13,6 +13,7 @@
 ### 主な機能
 
 ✅ **知識の収集**: KindleやWeb記事からテキストをコピーして追加  
+✅ **大容量対応**: 最大50万文字（書籍1冊分以上）まで入力可能  
 ✅ **NotebookLM連携**: 自動でプロンプト生成し、AIポッドキャスト形式に変換  
 ✅ **プレイリスト管理**: 学習ログを整理して管理  
 ✅ **PWA対応**: スマートフォンにインストール可能  
@@ -30,8 +31,8 @@
 
 ```bash
 # リポジトリをクローン
-git clone <repository-url>
-cd webapp
+git clone https://github.com/eak333/learning-jockey.git
+cd learning-jockey
 
 # 依存関係をインストール
 npm install
@@ -66,7 +67,9 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 ### 2. 知識の追加
 
 1. 右下の「+」ボタンをクリック
-2. タイトルと内容（10文字以上）を入力
+2. タイトルと内容を入力
+   - 最小: 10文字
+   - 最大: **50万文字**（書籍1冊分以上対応）
 3. 「コピーして送信」をクリック
 4. 自動的にNotebookLMが開き、プロンプトがクリップボードにコピーされます
 
