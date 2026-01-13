@@ -5,10 +5,10 @@ import { z } from 'zod';
 export const learningItemInputSchema = z.object({
   title: z.string()
     .min(1, 'タイトルを入力してください。')
-    .max(200, 'タイトルは200文字以内にしてください。'),
+    .max(500, 'タイトルは500文字以内にしてください。'),
   content: z.string()
     .min(10, '10文字以上入力してください。')
-    .max(5000, '5000文字以内にしてください。'),
+    .max(500000, '50万文字以内にしてください。'), // 書籍1冊分以上対応
   source: z.string().optional().default('Manual'),
   tags: z.array(z.string()).optional(),
 });

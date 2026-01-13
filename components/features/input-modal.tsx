@@ -121,20 +121,24 @@ export function InputModal({ open, onOpenChange }: InputModalProps) {
             <label className="text-sm font-medium text-slate-700 dark:text-slate-200">
               内容
               <span className="text-xs text-slate-500 ml-2">
-                ({content.length}/5000文字)
+                ({content.length.toLocaleString()}文字
+                {content.length > 100000 && ` ≈ ${Math.round(content.length / 100000 * 10) / 10}冊分`})
               </span>
             </label>
             <Textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              placeholder="学習したいテキストを貼り付けてください（10文字以上）"
-              className="min-h-[200px] bg-white dark:bg-slate-800"
+              placeholder="学習したいテキストを貼り付けてください（10文字以上、最大50万文字まで対応）&#13;&#10;&#13;&#10;書籍1冊分（約10〜20万文字）でも問題ありません。"
+              className="min-h-[300px] max-h-[500px] bg-white dark:bg-slate-800 resize-y"
             />
           </div>
 
           <div className="bg-orange-50 dark:bg-teal-900/20 border border-orange-200 dark:border-teal-700 rounded-lg p-4">
             <p className="text-sm text-slate-700 dark:text-slate-300">
               <strong>💡 ヒント：</strong> 送信すると、NotebookLM用のプロンプトがクリップボードにコピーされ、自動的にNotebookLMが開きます。
+            </p>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">
+              📚 書籍1冊分（10〜20万文字）も対応。長文でも安心して貼り付けてください。
             </p>
           </div>
 
